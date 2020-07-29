@@ -7,23 +7,23 @@ using System.Linq;
 
 namespace BestRestaurant.Controllers
 {
-  public class RestaurantsController : Controllers
+  public class RestaurantController : Controller
   {
     private readonly BestRestaurantContext _db;
 
-    public RestaurantsController(BestRestaurantContext db)
+    public RestaurantController(BestRestaurantContext db)
     {
       _db = db;
     }
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.Include(restaurants => restraurants.Cuisine).ToList();
-      return view(model);
+      List<Restaurant> model = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList();
+      return View(model);
     }
 
     public ActionResult Create()
     {
-      return view();
+      return View();
     }
 
     [HttpPost]
@@ -50,12 +50,12 @@ namespace BestRestaurant.Controllers
     [HttpPost]
     public ActionResult Edit(Restaurant restaurant)
     {
-      _db.Entry(Restaurant).State = EntityState.Modified;
+      _db.Entry(restaurant).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
-    public ActionResult Delete(int Id)
+    public ActionResult Delete(int id)
     {
       Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       return View(thisRestaurant);

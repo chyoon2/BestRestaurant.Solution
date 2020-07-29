@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 
 namespace BestRestaurant.Models
 {
@@ -5,7 +6,7 @@ namespace BestRestaurant.Models
   {
     public Cuisine()
     {
-      this.Restaurant = new HashSet<Restaurant>();
+      this.Restaurants = new HashSet<Restaurant>();
     }
     
     public int CuisineId { get; set; }

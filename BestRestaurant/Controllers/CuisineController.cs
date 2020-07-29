@@ -8,7 +8,7 @@ namespace BestRestaurant.Controllers
 {
   public class CuisineController : Controller
   {
-    private readonly BestRestaurant _db;
+    private readonly BestRestaurantContext _db;
 
     public CuisineController(BestRestaurantContext db)
     {
@@ -23,7 +23,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Show(int id)
     {
-      Cuisine thisCuisine = _db.Cuisines.Include(cuisine => cuisine.Restaurants).FirstOrDefault(Cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines.Include(cuisine => cuisine.Restaurants).FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
   }
