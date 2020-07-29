@@ -23,7 +23,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Show(int id)
     {
-      Cuisine thisCuisine = _db.Cuisines.Include(cuisine => cuisine.Restaurants).FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines.Include(cuisines => cuisines.Restaurants).FirstOrDefault(cuisines => cuisines.CuisineId == id);
       return View(thisCuisine);
     }
   }

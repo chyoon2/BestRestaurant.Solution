@@ -7,17 +7,17 @@
 
 <h2>Cuisine Details:</h2>
 <hr />
-<h3>Cuisine Name: @Html.DisplayFor(model => model.Name)</h3>
-<h4>Region: @Html.DisplayFor(model => model.Region)</h4>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<h3>Region: @Html.DisplayFor(model => model.Region)</h3>
 
 <h4>Restaurants:</h4>
 <ul>
-@if(Model.Restaurant.Count == 0)
+@if(Model.Restaurants.Count == 0)
 {
   <p>No Restaurants Found :(</p>
 }
 
-@foreach (Restaurant restaurant in @Model.Restaurant)
+@foreach (Restaurant restaurant in @Model.Restaurants)
 {
   <li>@Html.ActionLink($"{restaurant.Name}", "Show", "Restaurant", new { id = restaurant.RestaurantId })</li>
 }
