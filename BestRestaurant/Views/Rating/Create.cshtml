@@ -10,11 +10,10 @@
 {
   <div class ="form-group">
     <input type="hidden" name="RestaurantId" id="RestaurantId" value="@ViewBag.RestaurantId" />
-
-    @Html.LabelFor(model => model.Score)
+    <h4>@Html.LabelFor(model => model.Score)</h4>
     @Html.TextBoxFor(model => model.Score, new{ @class = "form-control"})
   
-    @Html.LabelFor(model => model.Review)
+    <h4>@Html.LabelFor(model => model.Review)</h4>
     @Html.TextBoxFor(model => model.Review, new{ @class = "form-control"})
   </div>
   <input type="submit" value="Submit Rating" class="btn btn-default" />

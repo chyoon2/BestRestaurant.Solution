@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using BestRestaurant.Models;
 using System.Linq;
+using System;
 
 namespace BestRestaurant.Controllers
 {
@@ -38,6 +39,15 @@ namespace BestRestaurant.Controllers
     public ActionResult Show(int id)
     {
       Restaurant thisRestaurant = _db.Restaurants.Include(restaurants => restaurants.Cuisine).Include(restaurants => restaurants.Ratings).FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      
+      var AverageScore = 
+        from r in _db.Ratings
+        group r by r.RestaurantId into res
+        where res.Key == thisRestaurant.RestaurantId
+        select res.Average(ratings => ratings.Score);
+
+
+      ViewBag.avgScore =  Math.Round(AverageScore.FirstOrDefault(), 1); 
       return View(thisRestaurant);
     }
 

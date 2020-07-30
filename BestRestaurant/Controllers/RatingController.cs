@@ -55,7 +55,7 @@ namespace BestRestaurant.Controllers
       Rating thisRating = _db.Ratings.FirstOrDefault(ratings => ratings.RatingId == id);
       _db.Ratings.Remove(thisRating);
       _db.SaveChanges();
-      return RedirectToAction("Index", "Restaurant");
+      return RedirectToAction("Show", "Restaurant", new {id = thisRating.RestaurantId});
     }
   }
 }

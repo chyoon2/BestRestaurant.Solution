@@ -9,7 +9,7 @@
 <br>
 <h5>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
 <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</h5>
-<h5>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating) Stars</h5>
+<h5>Average Rating: @ViewBag.avgScore</h5>
 <h5>Phone Number: @Html.DisplayFor(model => model.PhoneNumber)</h5>
 <h5>@Html.DisplayNameFor(model => model.Cuisine): @Html.ActionLink($"{Model.Cuisine.Name}", "Show", "Cuisine", new { id = Model.CuisineId })</h5>
 
