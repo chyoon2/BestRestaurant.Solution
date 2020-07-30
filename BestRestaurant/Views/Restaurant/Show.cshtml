@@ -22,7 +22,7 @@
 <ul>
 @foreach (Rating rating in Model.Ratings)
 {
-  <li>@rating.Review | @rating.Score</li>
+  <li>@rating.Review | @rating.Score | @Html.ActionLink("Edit", "Edit", "Rating", new {id = @rating.RatingId}) | @Html.ActionLink("Delete", "Delete", "Rating", new {id = @rating.RatingId})</li>
 }
 <p>@Html.ActionLink("Rate this Restaurant", "Create", "Rating", new { id = Model.RestaurantId })</p>
 

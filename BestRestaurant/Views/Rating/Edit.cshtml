@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+@using BestRestaurant.Models
+@model BestRestaurant.Models.Rating;
+
+<h5>Edit this Rating:</h5>
+<br>
+@using (Html.BeginForm())
+{
+  <div class ="form-group">
+    @Html.HiddenFor(model => model.RatingId)
+    @Html.HiddenFor(model => model.RestaurantId)
+
+    @Html.LabelFor(model => model.Score)
+    @Html.EditorFor(model => model.Score, new{ @class = "form-control"})
+  
+    @Html.LabelFor(model => model.Review)
+    @Html.EditorFor(model => model.Review, new{ @class = "form-control"})
+  </div>
+  <input type="submit" value="Save" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Cancel", "Show", "Restaurant", new { id = Model.RestaurantId })</p>

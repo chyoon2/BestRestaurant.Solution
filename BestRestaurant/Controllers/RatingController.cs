@@ -32,7 +32,6 @@ namespace BestRestaurant.Controllers
     public ActionResult Edit(int id)
     {
       Rating thisRating = _db.Ratings.FirstOrDefault(ratings => ratings.RatingId == id);
-      ViewBag.RestaurantId = new SelectList(_db.Restaurants, "RestaurantId", "Name");
       return View(thisRating);
     }
 
@@ -41,7 +40,7 @@ namespace BestRestaurant.Controllers
     {
       _db.Entry(rating).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index", "Restaurant");
+      return RedirectToAction("Show", "Restaurant", new {id = rating.RestaurantId});
     }
 
     public ActionResult Delete(int id)
