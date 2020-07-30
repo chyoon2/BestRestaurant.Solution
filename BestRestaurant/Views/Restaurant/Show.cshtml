@@ -5,14 +5,27 @@
 @using BestRestaurant.Models;
 @model BestRestaurant.Models.Restaurant;
 
-<h3>Restaurant Details:</h3>
-
+<h1>Restaurant Details:</h1>
+<br>
 <h5>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
 <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</h5>
-<h5>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)</h5>
+<h5>Average Rating: @ViewBag.avgScore</h5>
 <h5>Phone Number: @Html.DisplayFor(model => model.PhoneNumber)</h5>
-<h5>@Html.DisplayNameFor(model => model.Cuisine): @Html.DisplayFor(model => model.Cuisine.Name)</h5>
+<h5>@Html.DisplayNameFor(model => model.Cuisine): @Html.ActionLink($"{Model.Cuisine.Name}", "Show", "Cuisine", new { id = Model.CuisineId })</h5>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.RestaurantId })</p>
+<h3>Ratings</h3>
+<br>
+@if (Model.Ratings.Count == 0)
+{
+  <p>No ratings have been added</p>
+}
+<ul>
+@foreach (Rating rating in Model.Ratings)
+{
+  <li>@rating.Review | @rating.Score | @Html.ActionLink("Edit", "Edit", "Rating", new {id = @rating.RatingId}) | @Html.ActionLink("Delete", "Delete", "Rating", new {id = @rating.RatingId})</li>
+}
+<p>@Html.ActionLink("Rate this Restaurant", "Create", "Rating", new { id = Model.RestaurantId })</p>
+
+<div class="bottom">
+<p>@Html.ActionLink("Back to list", "Index")   ||    @Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })    ||    @Html.ActionLink("Delete Item", "Delete", new { id = Model.RestaurantId })</p>
+</div>

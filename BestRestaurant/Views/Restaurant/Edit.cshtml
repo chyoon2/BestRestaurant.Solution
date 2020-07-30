@@ -4,25 +4,31 @@
 
 @model BestRestaurant.Models.Restaurant
 
-<h2>Edit</h2>
-
-<h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
-
+<h1>Edit</h1>
+<br>
+<h5>Edit this task: @Html.DisplayFor(model => model.Name)</h5>
+<br>
 @using (Html.BeginForm())
 {
+  <div class ="form-group">
     @Html.HiddenFor(model => model.RestaurantId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-    @Html.LabelFor(model => model.Location)
-    @Html.EditorFor(model => model.Location)
-    @Html.LabelFor(model => model.Rating)
-    @Html.EditorFor(model => model.Rating)
-    @Html.LabelFor(model => model.PhoneNumber)
-    @Html.EditorFor(model => model.PhoneNumber)
-    @Html.LabelFor(model => model.Cuisine)
-    @Html.DropDownList("CuisineId")
-    
-    <input type="submit" value="Save" />
+    <h4>@Html.LabelFor(model => model.Name)</h4>
+    @Html.EditorFor(model => model.Name, new{ @class = "form-control"})
+
+    <h4>@Html.LabelFor(model => model.Location)</h4>
+    @Html.EditorFor(model => model.Location, new{ @class = "form-control"})
+
+    <h4>@Html.LabelFor(model => model.Rating)</h4>
+    @Html.EditorFor(model => model.Rating, new{ @class = "form-control"})
+
+    <h4>@Html.LabelFor(model => model.PhoneNumber)</h4>
+    @Html.EditorFor(model => model.PhoneNumber, new{ @class = "form-control"})
+  
+  <h5>Cuisine</h5>@Html.DropDownList("CuisineId")
+  <input type="submit" value="Save" class="btn btn-default" />
+ </div>
 }
+<div class = "bottom">
 <p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
