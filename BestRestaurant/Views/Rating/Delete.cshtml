@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurant.Models.Rating
+
+<h2>Are you sure you want to delete this?</h2>
+<br>
+<p>@Html.DisplayFor(model => model.Score)</p>
+<p>@Html.DisplayNameFor(model => model.Review): @Html.DisplayFor(model => model.Review)</p>
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+
+<div class = "bottom">
+@Html.ActionLink("Cancel", "Show", new { id = Model.RestaurantId })
+</div>

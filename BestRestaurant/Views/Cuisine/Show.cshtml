@@ -5,7 +5,7 @@
 @using BestRestaurant.Models;
 @model BestRestaurant.Models.Cuisine;
 
-<h2>Cuisine Details:</h2>
+<h1>Cuisine Details:</h1>
 <hr />
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 <h3>Region: @Html.DisplayFor(model => model.Region)</h3>
@@ -14,12 +14,12 @@
 <ul>
 @if(Model.Restaurants.Count == 0)
 {
-  <p>No Restaurants Found :(</p>
+<p>No Restaurants Found</p>
 }
 
 @foreach (Restaurant restaurant in @Model.Restaurants)
 {
-  <li>@Html.ActionLink($"{restaurant.Name}", "Show", "Restaurant", new { id = restaurant.RestaurantId })</li>
+<li>@Html.ActionLink($"{restaurant.Name}", "Show", "Restaurant", new { id = restaurant.RestaurantId })</li>
 }
 </ul>
 

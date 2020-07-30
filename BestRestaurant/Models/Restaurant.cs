@@ -1,11 +1,14 @@
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
-using System;
+using System.Collections.Generic;
 
 namespace BestRestaurant.Models
 {
   public class Restaurant
   {
+    public Restaurant()
+    {
+      this.Ratings = new HashSet<Rating>();
+    }
     public int RestaurantId { get; set; }
     public int CuisineId { get; set; }
     public string Name { get; set; }
@@ -16,5 +19,6 @@ namespace BestRestaurant.Models
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Rating { get; set; }
     public virtual Cuisine Cuisine { get; set; }
+    public virtual ICollection<Rating> Ratings { get; set; }
   }
 }

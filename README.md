@@ -30,7 +30,7 @@ _What is a restaurant? Is it just some place with a random name, plopped in some
 3. Enter the following SQL into the query window and click "execute"
 
 ```
-DROP DATABASE IF EXISTS: best_restaurants;
+DROP DATABASE IF EXISTS best_restaurants;
 CREATE DATABASE best_restraunts;
 USE best_restraunts;
 CREATE TABLE `restaurants` (
@@ -90,7 +90,7 @@ INSERT INTO `cuisines` (Name, Region)
 3. Open the project
     "code ."
 4. Open your computer's terminal and navigate to the directory bearing the name of the program and containing the top level subdirectories and files.
-5. Enter the command "dotnet build"in the terminal and press "Enter".
+5. Enter the command "dotnet build" in the terminal and press "Enter".
 6. Enter the command "dotnet watch run" in the terminal and press "Enter".
 
 ## Known Bugs
