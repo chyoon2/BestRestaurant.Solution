@@ -38,7 +38,6 @@ namespace BestRestaurant.Controllers
     public ActionResult Show(int id)
     {
       Restaurant thisRestaurant = _db.Restaurants.Include(restaurants => restaurants.Cuisine).FirstOrDefault(restaurants => restaurants.RestaurantId == id);
-      //ViewBag.Cuisine = _db.Cuisines.FirstOrDefault(restaurants => restaurants.CuisineId == thisRestaurant.CuisineId);
       return View(thisRestaurant);
     }
 
