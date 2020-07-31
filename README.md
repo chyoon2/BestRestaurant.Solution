@@ -95,7 +95,11 @@ INSERT INTO `cuisines` (Name, Region)
 
 ## Known Bugs
 
-* n/a
+* no form input error handling
+* no limit on score (should be 0-10)
+* no null handling for certain form fields
+
+## Feature Roadmap
 
 ## Support and contact details
 
